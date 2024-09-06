@@ -241,16 +241,18 @@
       const isLoggedIn = localStorage.getItem("loggedIn");
       const userName = localStorage.getItem("user");
 
-      if (isLoggedIn && userName) {
-        document.getElementById(
-          "greeting"
-        ).innerText = `Hello, ${userName}! Welcome back to CardBuddy.`;
-        document.getElementById(
-          "welcomeMessage"
-        ).innerText = `Welcome, ${userName}`;
-      } else {
-        window.location.href = "./Login.html";
-      }
+      // if (isLoggedIn && userName) {
+
+      // } else {
+      //   window.location.href = "./Login.html";
+      // }
+
+      document.getElementById(
+        "greeting"
+      ).innerText = `Hello, ${userName}! Welcome back to CardBuddy.`;
+      document.getElementById(
+        "welcomeMessage"
+      ).innerText = `Welcome, ${userName}`;
     </script>
     <script src="../scripts/script.js"></script>
   </body>
