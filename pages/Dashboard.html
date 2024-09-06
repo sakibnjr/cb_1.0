@@ -111,47 +111,52 @@
     <!-- Dashboard Section -->
     <section class="py-20 bg-white">
       <div class="container w-4/5 mx-auto px-4">
+        <p id="greeting" class="text-2xl text-center text-gray-600 m-4"></p>
         <h1 class="text-4xl font-bold text-blue-800 mb-8 text-center">
           Dashboard
         </h1>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Virtual Card Information -->
-          <div class="bg-blue-50 p-6 rounded-lg shadow-md">
+          <div
+            class="bg-blue-50 p-6 rounded-lg shadow-md flex flex-col justify-between"
+          >
             <h2 class="text-2xl font-semibold text-blue-700 mb-4">
               Your Virtual Cards
             </h2>
-            <ul class="text-gray-600 space-y-4">
+            <ul class="text-gray-600 space-y-4 mb-2">
               <li>Card Number: 1234 5678 9012 3456</li>
               <li>Expiry Date: 12/24</li>
-              <li>Balance: $100.00</li>
-              <li>Card Status: Active</li>
+              <li>Balance: $0.00</li>
+              <li>Card Status: <span class="text-green-600">Active</span></li>
             </ul>
-            <button class="btn btn-primary mt-6">Manage Card</button>
+            <button class="btn btn-primary">Manage Card</button>
           </div>
 
           <!-- Balance Section -->
-          <div class="bg-blue-50 p-6 rounded-lg shadow-md">
+          <div
+            class="bg-blue-50 p-6 rounded-lg shadow-md flex flex-col justify-between"
+          >
             <h2 class="text-2xl font-semibold text-blue-700 mb-4">
               Your Balance
             </h2>
-            <p class="text-3xl font-bold text-gray-800 mb-4">$100.00</p>
+            <p class="text-3xl font-bold text-gray-800 mb-4">$0.00</p>
             <button class="btn btn-primary">Top Up Now</button>
           </div>
 
           <!-- Transaction History -->
-          <div class="bg-blue-50 p-6 rounded-lg shadow-md">
+          <div
+            class="bg-blue-50 p-6 rounded-lg shadow-md flex flex-col justify-between"
+          >
             <h2 class="text-2xl font-semibold text-blue-700 mb-4">
               Transaction History
             </h2>
-            <ul class="text-gray-600 space-y-2">
-              <li>Amazon - $20.00 - 02/09/2024</li>
-              <li>Spotify - $10.00 - 01/09/2024</li>
-              <li>Netflix - $15.00 - 25/08/2024</li>
-              <li>Apple Store - $50.00 - 20/08/2024</li>
+            <ul class="text-gray-600 space-y-2 mb-2">
+              <li>Amazon - <strong>$20.00</strong> - 02/09/2024</li>
+              <li>Spotify - <strong>$10.00</strong> - 01/09/2024</li>
+              <li>Netflix - <strong>$15.00</strong> - 25/08/2024</li>
+              <li>Apple Store - <strong>$50.00</strong> - 20/08/2024</li>
             </ul>
-            <button class="btn btn-link mt-6 text-blue-700">
-              View All Transactions
-            </button>
+            <button class="btn btn-primary">View All Transactions</button>
           </div>
         </div>
       </div>
@@ -233,6 +238,22 @@
         </nav>
       </div>
     </footer>
+
+    <script>
+      const isLoggedIn = localStorage.getItem("loggedIn");
+      const userName = localStorage.getItem("user");
+
+      if (isLoggedIn && userName) {
+        document.getElementById(
+          "greeting"
+        ).innerText = `Hello, ${userName}! Welcome back to CardBuddy.`;
+        document.getElementById(
+          "welcomeMessage"
+        ).innerText = `Welcome, ${userName}`;
+      } else {
+        window.location.href = "../pages/Login.html";
+      }
+    </script>
     <script src="../scripts/script.js"></script>
   </body>
 </html>
